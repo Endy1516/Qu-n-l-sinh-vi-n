@@ -19,7 +19,7 @@ namespace QLSV_Do_an
 
         private void frmDSSV_Load(object sender, EventArgs e)
         {
-            dgvSinhvien.DataSource = new Database().Selectdata("exec SelectallSinhvien", null);
+            dgvSinhvien.DataSource = new Database().Selectdata("exec SelectallSinhvien");
 
             dgvSinhvien.Columns["MaSv"].HeaderText = "Mã sinh viên";
             dgvSinhvien.Columns["hoten"].HeaderText = "Họ và Tên";
@@ -28,6 +28,25 @@ namespace QLSV_Do_an
             dgvSinhvien.Columns["Quequan"].HeaderText = "Quê quán";
             dgvSinhvien.Columns["Diachi"].HeaderText = "Địa chỉ";
             dgvSinhvien.Columns["SDT"].HeaderText = "Số điện thoại";
+        }
+
+        private void dgvSinhvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvSinhvien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var msv = dgvSinhvien.Rows[e.RowIndex].Cells["MaSV"].Value.ToString();
+                new frmSinhvien(msv).ShowDialog();
+            }
+        }
+
+        private void BtnThemmoi_Click(object sender, EventArgs e)
+        {
+            new frmSinhvien(null).ShowDialog();
         }
     }
 }

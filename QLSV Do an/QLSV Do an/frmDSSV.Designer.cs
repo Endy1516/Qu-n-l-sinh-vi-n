@@ -48,6 +48,8 @@
             dgvSinhvien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSinhvien.Size = new Size(1298, 595);
             dgvSinhvien.TabIndex = 0;
+            dgvSinhvien.CellContentClick += dgvSinhvien_CellContentClick;
+            dgvSinhvien.CellDoubleClick += dgvSinhvien_CellDoubleClick;
             // 
             // label1
             // 
@@ -82,6 +84,7 @@
             BtnThemmoi.TabIndex = 4;
             BtnThemmoi.Text = "Thêm mới";
             BtnThemmoi.UseVisualStyleBackColor = true;
+            BtnThemmoi.Click += BtnThemmoi_Click;
             // 
             // frmDSSV
             // 
